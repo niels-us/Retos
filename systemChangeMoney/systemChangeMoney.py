@@ -68,8 +68,8 @@ while(salir == 'no'):
    resultados = montoFinal.splitlines()
    
    for objCambio in resultados:
-       lstObjAlumno = objCambio.split(',')
-       print('En ',lstObjAlumno[0], 'tu conversion es ', float(miMonto)/float(lstObjAlumno[1])) 
+       lstObjCambio = objCambio.split(',')
+       print('En ',lstObjCambio[0], 'tu conversion es ', float(miMonto)/float(lstObjCambio[1])) 
    fr.close()
    print('*'*50)
    print('Desea salir del programa si/no')
