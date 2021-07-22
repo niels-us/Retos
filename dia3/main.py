@@ -15,7 +15,7 @@ def menuopciones():
     print("[4] ELIMINAR ALUMNO")
     print("*" * 20)
 
-fileName = r"alumnos2.txt"
+fileName = r"alumnos.txt"
 
 if(os.path.isfile(fileName)):
     fr = open(fileName,'r')
@@ -38,10 +38,14 @@ while(salir == 'no'):
         email = input("EMAIL : ")
         celular = input("CELULAR : ")
         alumnos = createAlumno(nombre,email,celular,alumnos)
+        print(alumnos)
+        
     elif(opcion == "2"):
         readAlumno(alumnos)
     elif(opcion == "3"):
-        updateAlumno(alumnos)
+        updateAlumno(alumnos)    
+    elif(opcion == "4"):
+        deleteAlumno(alumnos)
     else:
         print("MARCO UNA OPCIÓN INCORRECTA")
         continue

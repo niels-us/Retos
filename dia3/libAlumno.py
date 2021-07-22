@@ -65,3 +65,18 @@ def updateAlumno(alumnos):
         }
     del alumnos[posAlumno]
     alumnos.insert(posAlumno,actAlumno)
+    
+def deleteAlumno(alumnos):
+    print('ELIMINANDO ALUMNO')
+    posAlumno=-1
+    alumnoBusqueda=input('INGRESE EL NOMBRE DEL ALUMNO: ')
+    for i in range(len(alumnos)):
+        a=alumnos[i]
+        for clave,valor in a.items():
+            if valor== alumnoBusqueda:
+                print(a)
+                posAlumno=i
+                print('posicion del alumno:' +str(posAlumno))
+                break
+    print('Eliminado datos del Alumno: ')
+    del alumnos[posAlumno]
