@@ -1,0 +1,4 @@
+Dólar de N.A.,3.948,10
+Libra Esterlina,5.115,10
+Peso Mexicano,0.177,10
+Euro,4.493,10

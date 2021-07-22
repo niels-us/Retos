@@ -2,6 +2,35 @@ alumnos=[]
 alumno={}
 salir='no'
 
+def leerDatos():
+    
+     fr= open('alumnos.txt','r')
+     alumnos= fr.read()
+     print(alumnos)
+     
+     lstAlumnosData=[]
+     
+     lstAlumnos=alumnos.splitlines()
+     print(lstAlumnos)
+     del lstAlumnos[0]
+     for objAlumno in lstAlumnos:
+         lstObjAlumno = objAlumno.split(',')
+         print(lstObjAlumno)
+         nombre=lstObjAlumno[0]
+         email=lstObjAlumno[1]
+         celular=lstObjAlumno[2]
+         dictAlumno={
+             'nombre':nombre,
+             'email':email,
+             'celular':celular
+         }
+         
+         lstAlumnosData.append(dictAlumno)
+         return lstAlumnosData
+    #  print(lstAlumnosData)
+     
+     fr.close
+
 def createAlumno(nombre,email,celular):
      nuevoAlumno={
             'nombre': nombre,
@@ -19,7 +48,14 @@ def readAlumno():
         for clave,valor in a.items():
             print(clave , " : " , valor)   
             
-def deleteAlumno():          
+def updateAlumno():
+    print("ACTUALIZAR ALUMNO")
+    posAlumno=0
+    alumnoBusqueda = input("Ingrese el nombre del alumno")
+    for a in alumnos:
+        for clave,valor in a.items():
+            if valor==alumnoBusqueda:
+                         
     
     
 
@@ -30,13 +66,14 @@ while(salir=='no'):
         print('registro de nuevo alumno:')
         nombre=input("nombre: ")
         email=input("email: ")
-        celular=input("celular: ")
+        celular=input("celular: ")        
         r=createAlumno(nombre,email,celular)
         if r==1:
             print('resgistro existoso')
         
     elif(opcion=='2'):
-        readAlumno()
+        leerDatos()
+        # readAlumno()
     elif(opcion=='3'):
         
     else:
