@@ -74,7 +74,6 @@ def deleteAlumno(alumnos):
         a=alumnos[i]
         for clave,valor in a.items():
             if valor== alumnoBusqueda:
-                print(a)
                 posAlumno=i
                 print('posicion del alumno:' +str(posAlumno))
                 break
