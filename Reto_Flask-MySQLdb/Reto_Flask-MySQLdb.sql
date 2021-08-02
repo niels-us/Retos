@@ -73,7 +73,12 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `id_categorias`) VAL
 	(1, 'USB', 25, 1000, 5),
 	(2, 'Canilleras', 50, 500, 4),
 	(3, 'Cuaderno', 2, 200, 8),
-	(4, 'Mouse', 35, 1500, 5);
+	(4, 'Mouse', 35, 1500, 5),
+	(5, 'Notebook', 3500, 2500, 5),
+	(6, 'Pelota', 50, 2050, 4),
+	(7, 'Teclado', 55, 1000, 5),
+	(8, 'PortaMina', 35, 1233, 8),
+	(9, 'Borrardor', 1, 1000, 8);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla db_sistemapos.tipo_doc_ide
