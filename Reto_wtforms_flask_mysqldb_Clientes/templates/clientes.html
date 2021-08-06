@@ -1,0 +1,64 @@
+{% extends 'basebs.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}
+    CLIENTES
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+<h2>Formulario Cliente</h2>
+<div class="container">
+    {{ wtf.quick_form(frmClientes) }}
+</div>
+</div>
+
+<div class="col-8">
+<h4>
+    <form action="{{ url_for('clientes') }}" method="POST">
+        CLIENTES - CATEGORIA : <select name="categoria" onchange="this.form.submit()">
+            <option value=0>TODOS</option>
+            {% for categoria in dataCategoria %}   
+            {% set miselected = '' %}
+            {% if(catId|int == categoria.0|int ) %}
+                {% set miselected = 'selected' %}
+            {% endif %}                  
+            <option value="{{ categoria.0 }}" {{miselected}} >{{ categoria.1 }}</option>
+            {% endfor %}
+        </select>
+    </form>
+</h4>
+<table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">TELEFONO</th>
+        <th scope="col">EMAIL</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for d in dataCliente %}
+        <tr>
+            <th scope="row">{{ d.0 }}</th>
+            <td>{{ d.3 }}</td>
+            <td>{{ d.4 }}</td>
+            <td>{{ d.5 }}</td>
+            <td><a href="{{ url_for('clientes') }}?pid={{ d.0 }}"><button class="btn btn-success">EDITAR</button></a></td>
+            <td>
+                <form action="{{ url_for('eliminarCliente') }}" method="POST">
+                    <input type="hidden" name="eid" value="{{ d.0 }}"/>
+                    <input type="submit" value="ELIMINAR" class="btn btn-danger"/>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+  </table> 
+</div>
+</div>
+</div>
+{% endblock %}
